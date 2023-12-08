@@ -1,0 +1,86 @@
+@import url("https://fonts.googleapis.com/css2?family=Figtree:wght@300;400&display=swap");
+
+.newsletter {
+	display: flex;
+	background-color: rgb(228, 228, 228);
+	font-family: "Figtree", sans-serif;
+	width: 100%;
+	margin: auto;
+	margin-top: 20vh; 
+}
+
+.newsText {
+	color: white;
+	width: 30%;
+	margin: auto;
+}
+
+
+.newsText img {
+	width: 100%;
+	
+}
+
+.newsSign {
+	background-color: #f1f1f6;
+	width: 25%;
+	margin: auto;
+	padding: 4rem;
+}
+
+form {
+	display: flex;
+	flex-direction: column;
+	text-align: left;
+	color: #71fc65;
+	font-size: 1rem;
+}
+
+.input-field {
+	position: relative;
+	margin-bottom: 1rem;
+}
+
+input {
+	background-color: #f1f1f6;
+	color: rgba(0, 0, 0, 0.7);
+	font-size: 0.9rem;
+	border: none;
+	border-bottom: 2px solid #71fc65;
+	font-size: 0.9rem;
+	width: 100%;
+	border-radius: 5px;
+	margin-top: 10px;
+	padding: 0 5px;
+}
+
+input:focus {
+	outline: none;
+	color: rgba(0, 0, 0, 0.6);
+	border-bottom: 2px solid #71fc65;
+}
+
+@media (max-width: 425px){
+	.newsletter {
+		display: grid;
+		 
+	}
+	.newsSign {
+		background-color: #f1f1f6;
+		width: 80%;
+		margin: 2rem;
+		padding: 1rem;
+	}
+}
+@media (max-width: 725px){
+	.newsletter {
+		display: grid;
+		 
+	}
+	.newsSign {
+		background-color: #f1f1f6;
+		width: 80%;
+		margin: 2rem;
+		padding: 1rem;
+	}
+}

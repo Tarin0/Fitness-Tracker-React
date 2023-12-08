@@ -1,0 +1,117 @@
+.home{
+    display: flex;
+    justify-content: center;
+    background-color: white;
+  }
+  .home img{
+    width: 59%;
+    margin-top: 30px;
+    margin-left: -174px;
+  }
+  .home .homeText{
+    margin-top: 200px;
+    margin-left: 44px;
+  }
+  .homeText h1{
+    font-size: 60px;
+    color: rgb(55, 248, 55);
+  }
+  .homeText h3{
+    margin-top: 22px;
+    font-size: 22px;
+  }
+  .homeText p{
+    margin-top: 22px;
+    color: silver;
+  }
+  .homeText button{
+    margin-top: 22px;
+    font-size: 22px;
+    width: 140px;
+    height: 40px;
+    background-color: green;
+    color: white;
+    border: none;
+  }
+  .homeText button:hover{
+    border: 2px solid white;
+    background-color: transparent;
+    color: rgb(23, 252, 23);
+
+  }
+
+  .head{
+    text-align: center;
+    padding: 95px;
+  }
+  .head span{
+    color: rgb(37, 244, 37);
+  }
+  .ourProgram{
+    display: flex;
+    justify-content: center;
+  }
+  .ourProgram .crd{
+    margin-inline: 22px;
+    text-align: center;
+  }
+  .ourProgram .crd img:hover{
+    width: 103%;
+  }
+
+
+  @media (max-width: 425px) {
+    
+    .home{
+      display: grid;
+      justify-content: center;
+      background-color: white;
+    }
+    .home img{
+      width: 100%;
+      margin-top: 10px;
+      padding-left: 150px;
+    }
+    .home .homeText{
+      margin-top: 10px;
+      /* margin-left: 44px; */
+    }
+    .homeText h1{
+      font-size: 30px;
+      color: rgb(55, 248, 55);
+    }
+    .homeText h3{
+      margin-top: 22px;
+      font-size: 22px;
+    }
+    .homeText p{
+      margin-top: 22px;
+      color: silver;
+    }
+   
+  
+    .head{
+      text-align: center;
+      padding: 30px;
+    }
+    .head span{
+      color: rgb(37, 244, 37);
+    }
+    .ourProgram{
+      display: grid;
+      justify-content: center;
+    }
+    .ourProgram .crd{
+      margin-inline: 22px;
+      text-align: center;
+    }
+    .ourProgram .crd img:hover{
+      width: 50%;
+    }
+  
+}
+
+@media (max-width: 1024px) {
+  
+   
+}
