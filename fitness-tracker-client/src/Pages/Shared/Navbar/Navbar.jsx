@@ -26,7 +26,7 @@ const Navbar = () => {
                     <a className="font-semibold  text-3xl">Fit<span className="text-green-500">Nezz</span></a>
                 </div>
                 <div className="navbar-center hidden lg:flex ">
-                    <ul className="menu menu-horizontal flex gap-5 mr-52 text-green-600  font-medium text-xl bg-gradient-to-r from-[#68f75a] via-green-100 to-[#86d87f]">
+                    <ul className="menu menu-horizontal flex gap-5 mr-36 text-green-600  font-medium text-xl bg-gradient-to-r from-[#68f75a] via-green-100 to-[#86d87f]">
                         <li><NavLink to="/">Home</NavLink></li>
                         <li><NavLink to="/gallery">Gallery</NavLink></li>
                         <li><NavLink to="/trainer">Trainer</NavLink></li>
