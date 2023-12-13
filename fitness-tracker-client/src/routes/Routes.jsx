@@ -34,6 +34,7 @@ import Blog6 from "../Pages/Home/BlogSection.jsx/Blog6";
 import Activities from "../Dashboard/Member/Activities";
 import RecommendedClass from "../Dashboard/Member/RecommendedClass";
 import ProfileUpdate from "../Dashboard/Member/ProfileUpdate";
+import Location from "../Pages/Location/Location";
 
 export const router = createBrowserRouter([
   {
@@ -93,6 +94,10 @@ export const router = createBrowserRouter([
         path: '/forum',
         element: (<PrivateRoute><Forum></Forum></PrivateRoute>),
         loader: () => fetch('https://fitness-tracker-server-tan.vercel.app/forum')
+      },
+      {
+        path: '/location',
+        element: <Location></Location>
       },
       {
         path: '/trainer-form',

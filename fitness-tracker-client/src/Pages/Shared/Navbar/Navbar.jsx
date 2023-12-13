@@ -20,6 +20,7 @@ const Navbar = () => {
                         <li><NavLink to="/trainer">Trainer</NavLink></li>
                         <li><NavLink to="/classes">Classes</NavLink></li>
                         <li><NavLink to="/forum">Forum</NavLink></li>
+                        <li><NavLink to="/location">Location</NavLink></li>
                         </ul>
                     </div>
                     <a className="font-semibold  text-3xl">Fit<span className="text-green-500">Nezz</span></a>
@@ -31,6 +32,7 @@ const Navbar = () => {
                         <li><NavLink to="/trainer">Trainer</NavLink></li>
                         <li><NavLink to="/classes">Classes</NavLink></li>
                         <li><NavLink to="/forum">Forum</NavLink></li>
+                        <li><NavLink to="/location">Location</NavLink></li>
 
                     </ul>
                 </div>
