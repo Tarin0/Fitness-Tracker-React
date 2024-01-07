@@ -11,7 +11,7 @@ const port = process.env.PORT || 5000
 
 // middleware
 const corsOptions = {
-  origin: ['http://localhost:5173', 'http://localhost:5174','https://sweet-frangollo-88cffc.netlify.app' ],
+  origin: ['http://localhost:5173', 'http://localhost:5174', 'https://sweet-frangollo-88cffc.netlify.app'],
   credentials: true,
   optionSuccessStatus: 200,
 }
@@ -65,6 +65,9 @@ async function run() {
     const classesCollection = client.db("fitnessDb").collection("classes");
     const classBookingCollection = client.db("fitnessDb").collection("classBooking");
     const forumCollection = client.db("fitnessDb").collection("forum");
+    const likeCollection = client.db("fitnessDb").collection("like");
+    const dislikeCollection = client.db("fitnessDb").collection("dislike");
+    const packageCollection = client.db("fitnessDb").collection("package");
 
     // auth related api
     app.post('/jwt', async (req, res) => {
@@ -122,30 +125,7 @@ async function run() {
       }
     })
 
-    // app.put('/user/:email', async (req, res) => {
-    //   const email = req.params.email
-    //   const updatedUser = req.body
-    //   const filter = { email: email }
-    //   const options = { upsert: true }
-    //   const isExist = await userCollection.findOne(filter)
-    //   if (isExist) {
-    //     const trainer = {
-    //       $set: {
-    //           role: updatedUser.role
-    //       }
-    //   }
-    //   const result = await userCollection.updateOne(filter, trainer, options);
-    //   res.send(result);
-    //   }
-    //   const result = await userCollection.updateOne(
-    //     filter,
-    //     {
-    //       $set: { ...updatedUser, timestamp: Date.now() },
-    //     },
-    //     options
-    //   )
-    //   res.send(result)
-    // })
+    
 
 
     app.put('/user/:email', async (req, res) => {
@@ -154,29 +134,29 @@ async function run() {
       const filter = { email: email }
       const options = { upsert: true }
       const isExist = await userCollection.findOne(filter)
-  
+
       if (isExist) {
-          const trainer = {
-              $set: {
-                  role: updatedUser.role
-              }
+        const trainer = {
+          $set: {
+            role: updatedUser.role
           }
-          const result = await userCollection.updateOne(filter, trainer, options);
-          return res.send(result);
+        }
+        const result = await userCollection.updateOne(filter, trainer, options);
+        return res.send(result);
       }
-  
+
       // If isExist is truthy, the response has already been sent,
       // so we don't execute the following code
       const result = await userCollection.updateOne(
-          filter,
-          {
-              $set: { ...updatedUser, timestamp: Date.now() },
-          },
-          options
+        filter,
+        {
+          $set: { ...updatedUser, timestamp: Date.now() },
+        },
+        options
       )
       res.send(result)
-  })
-  
+    })
+
 
 
 
@@ -264,7 +244,7 @@ async function run() {
       res.send(result);
     })
 
-    
+
 
 
     app.post('/subscribers', async (req, res) => {
@@ -341,6 +321,45 @@ async function run() {
       res.send(result);
     })
 
+
+    app.post('/like', async (req, res) => {
+      const { forumId, userEmail } = req.body;
+      const alreadyLiked = await likeCollection.findOne({ forumId, userEmail });
+      await dislikeCollection.deleteOne({ forumId, userEmail });
+      if (alreadyLiked) {
+        return res.status(409).json({ message: "Already liked" }); // Conflict status
+      }
+
+      // Proceed to add the like
+      const result = await likeCollection.insertOne({ forumId, userEmail });
+      res.json(result);
+    });
+
+
+    app.post('/dislike', async (req, res) => {
+      const { forumId, userEmail } = req.body;
+      const alreadyDisliked = await dislikeCollection.findOne({ forumId, userEmail });
+      await likeCollection.deleteOne({ forumId, userEmail });
+      if (alreadyDisliked) {
+        return res.status(409).json({ message: "Already Disliked" }); // Conflict status
+      }
+
+      const result = await dislikeCollection.insertOne({ forumId, userEmail });
+      res.json(result);
+    });
+    app.get('/like', async (req, res) => {
+      const cursor = likeCollection.find();
+      const result = await cursor.toArray();
+      res.send(result);
+    })
+
+    app.get('/dislike', async (req, res) => {
+      const cursor = dislikeCollection.find();
+      const result = await cursor.toArray();
+      res.send(result);
+    })
+
+   
 
 
 

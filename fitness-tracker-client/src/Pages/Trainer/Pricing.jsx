@@ -14,7 +14,7 @@ const Pricing = () => {
               </h2>
               <p className="text-base text-body-color dark:text-dark-6">
                 Choose the perfect fitness package that suits your needs and goals.
-                Whether you're just starting or looking for advanced options,
+                Whether you are just starting or looking for advanced options,
                 we have a plan for everyone's fitness journey.
               </p>
             </div>

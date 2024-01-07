@@ -1,10 +1,10 @@
-import { Link, NavLink, useNavigate } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import useAuth from "../../../hooks/useAuth";
 
 const Navbar = () => {
 
     const { user, logOut } = useAuth();
-    const navigate = useNavigate();
+    // const navigate = useNavigate();
     
     return (
         <div>
@@ -53,8 +53,6 @@ const Navbar = () => {
                                 </li>
                                 <li>
                                 <Link className="btn btn-sm  btn-ghost" to="/dashboard">Dashboard</Link>
-                                    
-
                                 </li>
                                 <li>
                                     <button className="btn btn-sm  btn-ghost"

@@ -20,6 +20,9 @@ const TrainerDetails = () => {
 
 console.log(classInfo?.length);
 console.log(trainerInfo?.email);
+
+
+
     return (
         <div>
             <div className="my-10 w-full bg-white  rounded-lg shadow ">
