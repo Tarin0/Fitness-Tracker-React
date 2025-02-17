@@ -5,7 +5,6 @@ Technology:
 3. MongoDB
 4. Node.js
 
-live link: https://sweet-frangollo-88cffc.netlify.app
 
 About my project:
 
